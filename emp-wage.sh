@@ -19,9 +19,11 @@ esac
 daily_wage=$(($working_hour*$wage_per_hour))
  }
 day=0 
-while (($day<=20)); do 
+hour=0
+while (($hour<=100 && $day<=20)); do 
         dailywagecalc
         day=$(($day+1))
+        hour=$(($hour+$working_hour))
         totalwage=$(($totalwage+$daily_wage))
 done 
 echo "$totalwage is made by employee in one month (20 days)"
