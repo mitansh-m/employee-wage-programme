@@ -1,21 +1,27 @@
 #!/bin/bash
 
-readonly daily_wage_per_hour=20
+readonly wage_per_hour=20
 echo Welcome to Employee Wage Computation Programme
 echo -----------------------------------------------
+function dailywagecalc(){
 attendance=$(($RANDOM % 3))
 case $attendance in  
         0)
-        attendance_alphabetic='full time'
         working_hour=8
         ;;
         1) 
-        attendance_alphabetic='part time'
         working_hour=4
         ;;
         *)
-        attendance_alphabetic='absent'
         working_hour=0
         ;;
 esac
-echo $(($daily_wage_per_hour*$working_hour)) is the daily wage for $attendance_alphabetic employee
+daily_wage=$(($working_hour*$wage_per_hour))
+ }
+day=0 
+while (($day<=20)); do 
+        dailywagecalc
+        day=$(($day+1))
+        totalwage=$(($totalwage+$daily_wage))
+done 
+echo "$totalwage is made by employee in one month (20 days)"
