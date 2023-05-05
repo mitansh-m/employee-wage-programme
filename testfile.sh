@@ -19,12 +19,14 @@ esac
 daily_wage=$(($working_hour*$wage_per_hour))
  }
 day=0 
+# below loop should be inside a function
 while (($day < 20)); do 
         dailywagecalc
         day=$(($day+1))
         totalwage=$(($totalwage+$daily_wage))
         declare -a TheWorkingDay
         TheWorkingDay[$day]=$daily_wage
+        # below echo statement should be separated from this while loop and inside another function
         echo  $day   :   ${TheWorkingDay[$day]}
 done 
 echo -----------------------------------------------------------------
