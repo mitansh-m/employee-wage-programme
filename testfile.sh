@@ -25,7 +25,7 @@ while (($day < 20)); do
         totalwage=$(($totalwage+$daily_wage))
         declare -a TheWorkingDay
         TheWorkingDay[$day]=$daily_wage
-        echo  employee made ${TheWorkingDay[$day]} on day $day
+        echo  $day   :   ${TheWorkingDay[$day]}
 done 
-echo 
+echo -----------------------------------------------------------------
 echo "$totalwage is made by employee in one month (${#TheWorkingDay[@]} days)"
